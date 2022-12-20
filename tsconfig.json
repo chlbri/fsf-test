@@ -3,7 +3,7 @@
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test.ts", "src/fixtures"],
   "compilerOptions": {
-    "lib": ["dom", "esnext"],
+    "lib": ["esnext"],
     "importHelpers": true,
     "target": "ES2015",
     // output .d.ts declaration files for consumers
@@ -24,7 +24,6 @@
     // use Node's module resolution algorithm, instead of the legacy TS one
     "moduleResolution": "node",
     // transpile JSX to React.createElement
-    "jsx": "react",
     // interop between ESM and CJS modules. Recommended by TS
     "esModuleInterop": true,
     // significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS
@@ -34,7 +33,6 @@
     "isolatedModules": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
     "noEmit": true,
-    "types": ["vitest/globals"],
     "declarationMap": true,
     "resolveJsonModule": true
   }

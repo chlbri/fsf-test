@@ -1,26 +1,6 @@
-# @bemedev/fsf-test
-
-> A test package for the
-> [@bemedev/fsf](https://www.npmjs.com/package/@bemedev/fstate) package
-
-</br>
-
-## Install
-
-```sh
-npm install --save @bemedev/fsf-test //or
-yarn add @bemedev/fsf-test //or
-pnpm add @bemedev/fsf-test
-```
-
-</br>
-
-## Usage
-
-```ts
 import { createFunction } from '@bemedev/fsf';
 import { test } from 'vitest';
-import testFunction from './testFunction';
+import testFunction from '../lib/index';
 
 type Context = {
   apiKey?: string;
@@ -129,9 +109,3 @@ test('#4: categories and products', () => {
     );
   });
 });
-```
-
-</br>
-</br>
-
-> ## 😎 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **_Enjoy your library_** ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 😎

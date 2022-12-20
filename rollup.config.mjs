@@ -1,38 +1,38 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import dts from 'rollup-plugin-dts';
-import esbuild from 'rollup-plugin-esbuild';
-import { terser } from 'rollup-plugin-terser';
 import tsConfigPaths from 'rollup-plugin-tsconfig-paths';
+import typescript from 'rollup-plugin-typescript2';
 
-/** @type {import('rollup').defineConfig} */
-const bundle = config => ({
-  ...config,
+/**
+ *
+ * @returns {import('rollup').RollupOptions}
+ */
+const bundleDts = () => ({
   input: 'src/index.ts',
-  external: id => !/^[./]/.test(id),
+  plugins: [typescript(), tsConfigPaths()],
+  external: ['@bemedev/fsf'],
+  output: [
+    {
+      format: 'es',
+      file: 'lib/index.d.ts',
+    },
+    {
+      format: 'cjs',
+      sourcemap: true,
+      dir: `lib`,
+      preserveModulesRoot: 'src',
+      preserveModules: true,
+      entryFileNames: '[name].js',
+    },
+    {
+      format: 'es',
+      sourcemap: true,
+      dir: `lib`,
+      preserveModulesRoot: 'src',
+      preserveModules: true,
+      entryFileNames: '[name].mjs',
+    },
+  ],
 });
 
-/** @type {import('rollup').RollupOptions} */
-export default [
-  bundle({
-    plugins: [esbuild(), terser({})],
-    output: [
-      {
-        file: `lib/index.js`,
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        file: `lib/index.mjs`,
-        format: 'es',
-        sourcemap: true,
-      },
-    ],
-  }),
-  bundle({
-    plugins: [dts()],
-    output: {
-      file: `lib/index.d.ts`,
-      format: 'es',
-    },
-  }),
-];
+const config = bundleDts();
+
+export default config;

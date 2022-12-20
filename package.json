@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "description": "A libray to test @bemedev/fsf",
   "name": "@bemedev/fsf-test",

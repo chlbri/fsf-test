@@ -1,7 +1,7 @@
 # @bemedev/fsf-test
 
 > A test package for the
-> [@bemedev/fsf](https://www.npmjs.com/package/@bemedev/fstate) package
+> [@bemedev/fsf](https://www.npmjs.com/package/@bemedev/fsf) package
 
 </br>
 
